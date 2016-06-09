@@ -1,9 +1,15 @@
-The run_analysis.R script utilizes data from the below mentioned “Human Activity Recognition Using Smartphones Dataset” (described below).  
 
-Please read the CodeBook.md in this github repository for a description of the run_analysis.R script. 
 
+o run_analysis.R script utilizes data from the below mentioned “Human Activity Recognition Using Smartphones Dataset” (described below).  This script was developed for the Johns Hopkins University class “Getting and Cleaning Data” offered on Coursera.org.  
+
+o CodeBook.md describes the data sets input into run_analysis.R and what operations are undertaken to produce a tidy data set.
+
+o original un-zipped data files from this link: 
+  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+  should be placed in directory “./data” so that run_analysis.R can process the data.  
 ___________________________________________________________________________
 
+o Acknowledgements - input data originally from:
 
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
