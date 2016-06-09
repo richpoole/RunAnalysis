@@ -24,34 +24,45 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 The purpose of the run_analysis.R script is to prepare a tidy data that can be used for later analysis from the data mentioned below. The run_analysis.R program assumes that the data files from the link below have been unzipped and placed in the "./data" folder.  From there, the program will automatically read the pertinent datasets:
 
 - 'features.txt': List of all observation names, in the format "variable_number" followed by "variable description"  Note: some variables have redundant names (only the number will differentiate variables).  No duplication is in the Mean() & std() variables, so numbers have been removed for the final tidy datasets. File:
+
     1 tBodyAcc-mean()-X
     2 tBodyAcc-mean()-Y
     ~
     561 angle(Z,gravityMean)
+
 - 'activity_labels.txt': list of 6 activity labels strings that identify the 1:6 "activity" variables.  6 obs. of 2 variables (activity level labels). File: 
+
     1 WALKING
     2 WALKING_UPSTAIRS
     3 WALKING_DOWNSTAIRS
     4 SITTING
     5 STANDING
     6 LAYING
+
 - 'train/X_train.txt': Training set variables.  7,352 obs. of 561 variables  (observation data).  File:
+
              V1          V2         V3         V4         V5  ~          V561
     1 0.2885845 -0.02029417 -0.1329051 -0.9952786 -0.9831106      -0.05862692
     2 0.2784188 -0.01641057 -0.1235202 -0.9982453 -0.9753002      -0.05431672
     3 0.2796531 -0.01946716 -0.1134617 -0.9953796 -0.9671870      -0.04911782
     ~                                                         ~
     561 0.2776613 -0.01727106 -0.1072207 -0.991653 -0.9802903     -0.1746585
+
 - 'train/y_train.txt': Training subjects.  7,352 obs. of 1 variable (subject id).  File:
+
       V1
     1  5
     2  5
     3  5
     ~
     7352  2
+
 - 'test/X_test.txt': Test set variables.  2,947 obs. of 561 variables  (observation data). File:
+
     similar to X_train
+
 - 'test/y_test.txt': Test subjects.   2,947 obs. of 1 variable (subject id). File:
+
     similar to y_train
     
 The goal of run_analysis.R script is:
