@@ -6,11 +6,13 @@ Xtrain <- read.table("./data/UCI HAR Dataset/train/X_train.txt")  ## loads df of
 Xtest <- read.table("./data/UCI HAR Dataset/test/X_test.txt")   ## loads df of 2947 x 561
 xdata <- rbind(Xtrain, Xtest)
 
-## get variable names & load into ‘dataset’ column names (kept #’s due to duplicate names)
-# cnames <- read.csv("./data/UCI HAR Dataset/features.txt", header = FALSE, sep = ".")
-# colnames(xdata) <- cnames[,1]
+## get variable names & load into ‘dataset’ column names 
 cnames <- read.csv("./data/UCI HAR Dataset/features.txt", header = FALSE, sep = " ")
 names(xdata) <- cnames[,2]
+## N.B. if redundant variable names become an issue, use the following R command lines instead to 
+## keep #’s in variable names due to duplicate names.
+## cnames <- read.csv("./data/UCI HAR Dataset/features.txt", header = FALSE, sep = ".")
+## colnames(xdata) <- cnames[,1]
 
 ## load activity (ytrain + ytest) values
 ytrain <- read.table("./data/UCI HAR Dataset/train/y_train.txt")    # loads df of 7352 x 1
@@ -23,16 +25,13 @@ activity <- mutate(ydata,activity=alabels[ydata[,1],2])
 activity <- activity[,2]
 
 ## load subject (subject_train + subject_test) dataset
-subtrain <- read.table("./data/UCI HAR Dataset/train/y_train.txt")    # loads df of 7352 x 1
-subtest <- read.table("./data/UCI HAR Dataset/test/y_test.txt")    # loads df of 2947 x 1
+subtrain <- read.table("./data/UCI HAR Dataset/train/subject_train.txt")    # loads df of 7352 x 1
+subtest <- read.table("./data/UCI HAR Dataset/test/subject_test.txt")    # loads df of 2947 x 1
 subject <- rbind(subtrain, subtest)                      # 10,299 x 1 list of subjects
 names(subject) <- "subject"
 
 # create combined dataset
 combined <- cbind(subject, activity, xdata)
-
-######## select only columns with mean() or std()
-######## xdata <- xdata[ ,grep(("mean\\(\\)|std\\(\\)"),cnames[,1])]
 
 ## only keep columns:  subject, activty & variables with mean() & std()
 mean_std_cols <- grepl("mean\\(\\)", names(combined)) | grepl("std\\(\\)",names(combined))
